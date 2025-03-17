@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PDF.js Diagnostic</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    h1 {
+      color: #333;
+    }
+    .file-list {
+      background-color: #f5f5f5;
+      border: 1px solid #ddd;
+      padding: 15px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+    }
+    .success {
+      color: green;
+      font-weight: bold;
+    }
+    .error {
+      color: red;
+      font-weight: bold;
+    }
+    #results {
+      margin-top: 20px;
+    }
+  </style>
+  <script src="check-pdfjs.js"></script>
+</head>
+<body>
+  <h1>PDF.js Diagnostic Tool</h1>
+  
+  <div class="file-list">
+    <h2>Required Files Checklist:</h2>
+    <ul>
+      <li>manifest.json</li>
+      <li>popup.html</li>
+      <li>popup.js</li>
+      <li>editor.html</li>
+      <li>editor.js</li>
+      <li>pdf-config.js</li>
+      <li>background.js</li>
+      <li>content.js</li>
+      <li>styles.css</li>
+      <li>pdf.js ← <strong>This is likely missing</strong></li>
+      <li>pdf.worker.js ← <strong>This is likely missing</strong></li>
+      <li>icons/icon16.png</li>
+      <li>icons/icon48.png</li>
+      <li>icons/icon128.png</li>
+    </ul>
+  </div>
+  
+  <h2>PDF.js Checker Results:</h2>
+  <div id="results">
+    Checking for PDF.js files...
+  </div>
+  
+  <h2>How to Fix Missing PDF.js Files:</h2>
+  <ol>
+    <li>Visit <a href="https://github.com/mozilla/pdf.js/releases" target="_blank">https://github.com/mozilla/pdf.js/releases</a></li>
+    <li>Download the latest stable release (look for "pdfjs-x.y.z-dist.zip")</li>
+    <li>Extract the zip file</li>
+    <li>Copy "build/pdf.min.js" to your extension directory and rename it to "pdf.js"</li>
+    <li>Copy "build/pdf.worker.min.js" to your extension directory and rename it to "pdf.worker.js"</li>
+    <li>Refresh your extension in chrome://extensions/</li>
+  </ol>
+</body>
+</html>
